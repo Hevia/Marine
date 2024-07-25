@@ -1,6 +1,8 @@
 ﻿using EntityStates;
 using HenryMod.Survivors.Henry;
 using RoR2;
+using RoR2.Projectile;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -22,7 +24,7 @@ namespace HenryMod.Survivors.Henry.SkillStates
 
         public override void OnEnter()
         {
-            base.OnEnter();
+          
             animator = GetModelAnimator();
 
             if (isAuthority && inputBank && characterDirection)
@@ -52,7 +54,6 @@ namespace HenryMod.Survivors.Henry.SkillStates
 
             if (NetworkServer.active)
             {
-                characterBody.AddTimedBuff(HenryBuffs.armorBuff, 3f * duration);
                 characterBody.AddTimedBuff(RoR2Content.Buffs.HiddenInvincibility, 0.5f * duration);
             }
         }

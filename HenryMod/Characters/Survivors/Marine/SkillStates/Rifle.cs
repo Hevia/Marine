@@ -1,15 +1,17 @@
 ﻿using EntityStates;
-using HenryMod.Survivors.Henry;
 using RoR2;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 namespace HenryMod.Survivors.Henry.SkillStates
 {
-    public class Shoot : BaseSkillState
+    public class Rifle : BaseSkillState
     {
         public static float damageCoefficient = HenryStaticValues.gunDamageCoefficient;
         public static float procCoefficient = 1f;
-        public static float baseDuration = 0.6f;
+        public static float baseDuration = 0f;
         //delay on firing is usually ass-feeling. only set this if you know what you're doing
         public static float firePercentTime = 0.0f;
         public static float force = 800f;
@@ -67,7 +69,7 @@ namespace HenryMod.Survivors.Henry.SkillStates
                 if (isAuthority)
                 {
                     Ray aimRay = GetAimRay();
-                    AddRecoil(-1f * recoil, -2f * recoil, -0.5f * recoil, 0.5f * recoil);
+                    AddRecoil(-0.1f * recoil, -0.2f * recoil, -0.2f * recoil, 0.1f * recoil);
 
                     new BulletAttack
                     {
